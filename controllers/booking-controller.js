@@ -9,12 +9,12 @@ export const get1Booking = (req, res) => {
 }
 
 export const addBooking = async (req, res) => {
-    const newBooking = new booking()
+    const newBooking = new booking(req.body)
 
-    const bookings =  await newBooking.save(req.body)
+    const bookings = await newBooking.save();
 
     // console.log('request', req)
-    res.status(201).json("booking")
+    res.status(201).json(bookings)
 }
 
 export const updateBooking = (req, res) => {
